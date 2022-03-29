@@ -1,0 +1,38 @@
+.movieCard {
+  margin-bottom: 2rem;
+  /* border: 2px solid white; */
+  text-align: center;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* .movieCard:hover {
+  box-shadow: 0 0.3rem 1rem 1rem rgba(37, 37, 37, 0.8);
+} */
+
+.movieCard__description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movieCard h1 {
+  margin: 0 0.5rem;
+}
+
+.movieCard__ratingIcon {
+  color: #fcc416 !important;
+}
+
+.movieCard img {
+  width: 100%;
+  height: 30vh;
+  object-fit: contain;
+  border-radius: 1rem;
+  transition: transform 0.2s ease-in;
+  cursor: pointer;
+}
+
+.movieCard img:hover {
+  transform: scale(1.1);
+}

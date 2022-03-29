@@ -1,0 +1,31 @@
+.movieGrid {
+  font-family: "Smooch Sans", sans-serif;
+  height: 100vh;
+  background-color: rgb(31, 24, 24);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.movieGrid__title {
+  font-size: 5em;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 900;
+  margin-top: 2rem;
+  text-transform: uppercase;
+}
+
+.movieGrid__grid {
+  height: 80vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin-top: 2rem;
+  padding-top: 1em;
+  gap: 1rem;
+  overflow: scroll;
+}
+
+.movieGrid__grid::-webkit-scrollbar {
+  display: none;
+}

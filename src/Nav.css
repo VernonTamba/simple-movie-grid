@@ -1,0 +1,40 @@
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 2rem;
+  height: 10vh;
+}
+
+.nav__button {
+  width: 7em;
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #000;
+  font-family: "Smooch Sans", sans-serif;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav__button:hover {
+  color: #fff;
+  background-color: #000;
+  border: 2px solid #fff;
+}
+
+button.active {
+  color: #fff;
+  background-color: #000;
+  border: 2px solid #fff;
+}
+
+@media (max-width: 45em) {
+  .nav__button {
+    font-size: 1rem;
+    margin: 0.5em;
+  }
+}
