@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./Movie.css";
 import movieRequest from "./MovieRequest";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Movie = () => {
   const [movies, setMovies] = useState([{}]);
-  const [currentUrl, setCurrentUrl] = useState(movieRequest.fetchNowPlaying);
 
   useEffect(() => {
     fetchMovies();
@@ -13,7 +13,9 @@ const Movie = () => {
 
   // Fetch data
   const fetchMovies = async () => {
-    const data = await fetch(`https://api.themoviedb.org/3${currentUrl}`);
+    const data = await fetch(
+      `https://api.themoviedb.org/3${movieRequest.fetchNowPlaying}`
+    );
     const moviesResults = await data.json();
 
     setMovies(moviesResults.results);
@@ -34,44 +36,22 @@ const Movie = () => {
           See Movies
         </Link>
       </div>
-      <div className="movie__grid">
-        {/* <img
-          src={`https://image.tmdb.org/t/p/w500${
-            movies[Math.floor(Math.random() * movies.length)].poster_path
-          }`}
-          alt={movies.title}
-        />
-        <img
-          src={`https://image.tmdb.org/t/p/w500${
-            movies[Math.floor(Math.random() * movies.length)].poster_path
-          }`}
-          alt={movies.title}
-        />
-        <img
-          src={`https://image.tmdb.org/t/p/w500${
-            movies[Math.floor(Math.random() * movies.length)].poster_path
-          }`}
-          alt={movies.title}
-        />
-        <img
-          src={`https://image.tmdb.org/t/p/w500${
-            movies[Math.floor(Math.random() * movies.length)].poster_path
-          }`}
-          alt={movies.title}
-        /> */}
+      <motion.div className="movie__grid">
         {movies.map((movie, index) => {
           while (index < 4) {
             let randomNumber = Math.floor(Math.random() * movies.length);
             return (
-              <img
+              <motion.img
+                whileHover={{ scale: 1.1 }}
                 key={index}
                 src={`https://image.tmdb.org/t/p/w500${movies[randomNumber].poster_path}`}
                 alt={movies[randomNumber].title}
               />
             );
           }
+          // return index; // Not sure what should be returned at the end of the arrow function
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };
